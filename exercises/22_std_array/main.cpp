@@ -8,8 +8,8 @@
 int main(int argc, char **argv) {
     {
         std::array<int, 5> arr{{1, 2, 3, 4, 5}};
-        ASSERT(arr.size() == ?, "Fill in the correct value.");
-        ASSERT(sizeof(arr) == ?, "Fill in the correct value.");
+        ASSERT(arr.size() == 5, "Fill in the correct value.");
+        ASSERT(sizeof(arr) == 40, "Fill in the correct value.");
         int ans[]{1, 2, 3, 4, 5};
         ASSERT(std::memcmp(arr.?, ans, ?) == 0, "Fill in the correct values.");
     }
