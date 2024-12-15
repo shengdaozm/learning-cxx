@@ -1,4 +1,6 @@
 ﻿#include "../exercise.h"
+#include <cstring>
+#include <iostream>
 #include <memory>
 #include <string>
 #include <vector>
@@ -44,21 +46,21 @@ int main(int argc, char **argv) {
     std::vector<std::string> problems[3];
 
     drop(forward(reset(nullptr)));
-    problems[0] = std::move(RECORDS);
+    problems[0] = std::move(RECORDS);//fd
 
     forward(drop(reset(forward(forward(reset(nullptr))))));
-    problems[1] = std::move(RECORDS);
+    problems[1] = std::move(RECORDS);//ffr,d
 
     drop(drop(reset(drop(reset(reset(nullptr))))));
-    problems[2] = std::move(RECORDS);
+    problems[2] = std::move(RECORDS);//d,d,r
 
     // ---- 不要修改以上代码 ----
 
     std::vector<const char *> answers[]{
         {"fd"},
         // TODO: 分析 problems[1] 中资源的生命周期，将记录填入 `std::vector`
-        {"", "", "", "", "", "", "", ""},
-        {"", "", "", "", "", "", "", ""},
+        {"d","ffr"},
+        {"d","d","r"},
     };
 
     // ---- 不要修改以下代码 ----

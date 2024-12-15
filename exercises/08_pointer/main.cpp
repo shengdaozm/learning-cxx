@@ -1,11 +1,27 @@
 ﻿#include "../exercise.h"
+#include <iostream>
 
 // READ: 数组向指针退化 <https://zh.cppreference.com/w/cpp/language/array#%E6%95%B0%E7%BB%84%E5%88%B0%E6%8C%87%E9%92%88%E7%9A%84%E9%80%80%E5%8C%96>
 bool is_fibonacci(int *ptr, int len, int stride) {
     ASSERT(len >= 3, "`len` should be at least 3");
     // TODO: 编写代码判断从 ptr 开始，每 stride 个元素取 1 个元素，组成长度为 n 的数列是否满足
     // arr[i + 2] = arr[i] + arr[i + 1]
-    return true;
+    int l1=0, l2=l1+stride;
+    bool is_fib = false; //判断第一次是否为斐波那契数列
+    //std::cout<<"=============="<<std::endl;
+    len -=3;
+    for(int l3=l2+stride; len>=0; l3+=stride,len--) {
+        //std::cout<<ptr[l1]<<" "<<ptr[l2]<<" "<<ptr[l3]<<std::endl;
+        if(ptr[l1] + ptr[l2] == ptr[l3]) {
+            is_fib = true;
+            l1=l2;
+            l2=l3;
+        } else {
+            //std::cout << "not Fibonacci" << std::endl;
+            return false;
+        }
+    }
+    return is_fib==false?false:true;
 }
 
 // ---- 不要修改以下代码 ----
